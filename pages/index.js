@@ -1,4 +1,4 @@
-import { getSession } from "next-auth/react";
+import { getSession, signOut } from "next-auth/react";
 
 function HomPage({ session }) {
   return (
@@ -6,6 +6,8 @@ function HomPage({ session }) {
       <h1>{session.user.name}</h1>
       <p>{session.user.email}</p>
       <img src={session.user.image} />
+      <hr />
+      <button onClick={() => signOut()}>Logout</button>
     </div>
   );
 }
